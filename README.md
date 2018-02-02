@@ -1,6 +1,6 @@
-# test cook
+# test git
 
-> test cook
+> test git
 
 ## Build Setup
 
