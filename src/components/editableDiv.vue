@@ -27,11 +27,11 @@
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'unitTest',
   data () {
     return {
       msg: 'cookingChoose-APP',
-      mL: [
+      mLOri: [
         {name: '土豆红萝卜牛肉'},
         {name: '咖喱土豆红萝卜牛肉汤'},
         {name: '蒜头小炒牛肉'},
@@ -41,15 +41,16 @@ export default {
         {name: '鸡汤'},
         {name: '蒜头烧鲫鱼'},
         {name: '蒜头烧黄鱼'},
+        {name: '蒜头烧三文鱼'},
         {name: '油煎带鱼'},
         {name: '蒜头烧虾'},
         {name: '蒜头肋排'},
         {name: '肋排汤'},
         {name: '红烧肉'},
-        {name: '大烤目鱼'},
+        {name: '梅干菜烧肉'},
         {name: '大烤目鱼'},
       ],
-      fL: [
+      fLOri: [
         {name: '红菜苔'},
         {name: '白菜肉丝'},
         {name: '蒜苔肉丝'},
@@ -67,12 +68,15 @@ export default {
         {name: '辣椒炒蛋'},
         {name: '平菇肉片'},
       ],
+      mL: [],
+      fL: [],
       m: '',
       f: '',
       week: [],
     }
   },
   mounted: function () {
+    this.dataInit()
     this.iM = 0
     this.iF = 0
   },
@@ -119,14 +123,23 @@ export default {
       this.week = []
       for (let i = 0; i < 7; i++) {
         let temp = {}
-        temp.nameM = this.mL[Math.floor(Math.random() * this.mL.length)].name
-        temp.nameF = this.fL[Math.floor(Math.random() * this.fL.length)].name
+        // var indexM = Math.floor(Math.random() * this.mL.length)
+        // var indexM = Math.floor(Math.random() * this.mL.length)
+        // console.log('this.mL', this.mL)
+        temp.nameM = this.mL.splice(Math.floor(Math.random() * this.mL.length), 1)[0].name
+        // console.log('this.mL', this.mL)
+        temp.nameF = this.fL.splice(Math.floor(Math.random() * this.fL.length), 1)[0].name
+        // temp.nameF = this.fL[Math.floor(Math.random() * this.fL.length)].name
+        // console.log(this.mL, this.fL)
         this.week.push(temp)
       }
-
+      this.dataInit()
       // this.fL.length
-
     },
+    dataInit: function () {
+      this.mL = this.mLOri.slice(0)
+      this.fL = this.fLOri.slice(0)
+    }
   }
 }
 </script>
