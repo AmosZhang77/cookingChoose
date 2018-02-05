@@ -8,6 +8,7 @@
     <button @click="start">start</button>
     <button @click="chooseM">选荤菜</button>
     <button @click="chooseF">选蔬菜</button>
+    <div v-for="item in arrtest">{{item}}</div>
   </div>
 </template>
 
@@ -40,11 +41,55 @@ export default {
       ],
       m: '',
       f: '',
+      arrtest: []
     }
   },
   mounted: function () {
     this.iM = 0
     this.iF = 0
+
+
+    // 以下代码感觉编译器有bug，第一次for 只打印1次，之后都是正确的，
+    /*for (let k = 0; k < 5; k++) {
+      if (k === 2) {
+        k = 'aaa'
+      }
+      this.forLet(k)
+    }*/
+/*
+    for (let z = 0; z < 5; z++) {
+      let z = 'abc'
+     /!* if (z === 2) {
+        z = 'aaa'
+      }*!/
+      console.log(z)
+
+    }
+*/
+/*
+    for (let z = 0; z < 5; z++) {
+      let z = 'abc'
+      /!* if (z === 2) {
+         z = 'aaa'
+       }*!/
+      console.log(z)
+
+    }
+*/
+
+   /* for (let z = 0; z < 5; z++) {
+      /!* if (z === 2) {
+        z = 'aaa'
+      }*!/
+      let z = 'abc'
+      console.log(z)
+      //this.forLet(z)
+    }
+    for (let z = 0; z < 5; z++) {
+      let z = 'abc'
+      console.log(z)
+    }*/
+
   },
   methods: {
     start: function () {
@@ -84,6 +129,9 @@ export default {
         this.iF = 0
         this.f = this.fL[this.iF].name
       }
+    },
+    forLet: function (i) {
+      this.arrtest.push(i)
     }
   }
 }
