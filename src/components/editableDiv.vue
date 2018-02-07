@@ -86,7 +86,7 @@ export default {
         clearInterval(this.T1)
       }
       if (this.T2) {
-        clearInterval( this.T2)
+        clearInterval(this.T2)
       }
       this.T1 = setInterval(() => {
         this.showM()
