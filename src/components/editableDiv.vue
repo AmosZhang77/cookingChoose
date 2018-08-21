@@ -49,7 +49,7 @@ export default {
         {name: '肋排汤'},
         {name: '红烧肉'},
         {name: '梅干菜烧肉'},
-        {name: '大烤目鱼'},
+        {name: '红烧目鱼'},
       ],
       fLOri: [
         {name: '红菜苔'},
